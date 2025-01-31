@@ -14,20 +14,20 @@ const sort = (emps,fieldName) => {
 
     for(let i=0;i<n-1;i++)
     {
-        minIndex = i;
+        smallEle = i;
         for(let j=i+1;j<n;j++)
         {
-            if(emps[j][fieldName] < emps[minIndex][fieldName])
+            if(emps[j][fieldName] < emps[smallEle][fieldName])
             {
-                minIndex = j;
+                smallEle = j;
             }
         }
 
-        if(minIndex != i)
+        if(smallEle != i)
         {
             let temp = emps[i];
-            emps[i] = emps[minIndex];
-            emps[minIndex] = temp;
+            emps[i] = emps[smallEle];
+            emps[smallEle] = temp;
         }
     }
     return emps;
@@ -54,4 +54,3 @@ let sortedOnUn = sort(employees,"fullName");
 console.log("Sorted employees based on fullName");
 
 sortedOnUn.forEach(element => console.log(`${element.fullName} : ${element.salary}`));
-
